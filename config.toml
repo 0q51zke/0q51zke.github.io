@@ -2,7 +2,7 @@ baseURL = "0q51zke.github.io/"
 theme = 'hugo-bearblog'
 
 # Basic metadata configuration for your blog.
-title = "0q51zke"
+title = "The 0q Files"
 author = "0q51zke"
 copyright = "Copyright © 2022, 0q51zke."
 languageCode = "en-US"

@@ -38,8 +38,11 @@ in the *Tuts 4 You* topic.
 
 ### Experiment
 
-First we need to aquire the correct ConfuserEx version from [GitHub](https://github.com/yck1509/ConfuserEx/releases/tag/v1.0.0).
-This can be easily achieved by the following commands.
+First we need to aquire and build the correct ConfuserEx version from [GitHub](https://github.com/yck1509/ConfuserEx/releases/tag/v1.0.0).
+This can be achieved by the following steps.
+
+To clone the project including dnlib as a submodule enter the following commands into your shell.
+The last one is required to get the correct version of ConfuserEx.
 
 ```
 0q51@zke:~$ git clone https://github.com/yck1509/ConfuserEx.git
@@ -47,6 +50,8 @@ This can be easily achieved by the following commands.
 0q51@zke:~$ git submodule update --init --recursive
 0q51@zke:~$ git checkout tags/v1.0.0
 ```
+
+Now we can open the Solution (`Confuser2.sln`) in the current version of Visual Studio
 
 ### Observation
 

@@ -12,7 +12,7 @@ You can find the related *Tuts 4 You* topic [here](https://forum.tuts4you.com/to
 
 ### TODOs before publishing
 
-- Building the version with VS2022 (Requires porting to .NET Framework 4.8)
+- **POSTPONED** Building the version with VS2022 (Requires porting to .NET Framework 4.8) 
 - Checkout every configuarble obfuscation method on its own -> Build deobfuscator for each
 - Compare the PE Stub of the outputs
 - Compare the IL of the outputs
@@ -38,20 +38,51 @@ in the *Tuts 4 You* topic.
 
 ### Experiment
 
-First we need to aquire and build the correct ConfuserEx version from [GitHub](https://github.com/yck1509/ConfuserEx/releases/tag/v1.0.0).
-This can be achieved by the following steps.
+#### Downloading ConfuserEx v1.0.0
+
+First we need to aquire the correct ConfuserEx version from [GitHub](https://github.com/yck1509/ConfuserEx/releases/tag/v1.0.0).
 
 To clone the project including dnlib as a submodule enter the following commands into your shell.
 The last one is required to get the correct version of ConfuserEx.
 
-```
-0q51@zke:~$ git clone https://github.com/yck1509/ConfuserEx.git
-0q51@zke:~$ cd ConfuserEx/
-0q51@zke:~$ git submodule update --init --recursive
-0q51@zke:~$ git checkout tags/v1.0.0
+```console
+PS C:\> git clone https://github.com/yck1509/ConfuserEx.git
+PS C:\> cd ConfuserEx/
+PS C:\> git submodule update --init --recursive
+PS C:\> git checkout tags/v1.0.0
 ```
 
-Now we can open the Solution (`Confuser2.sln`) in the current version of Visual Studio
+When we open the project in Visual Studio for the first time we can ignore the popup that wants us to port the projects to the newest installed .NET Framework version,
+as the code is only required to get insight in the inner workings. Building the solution is not necessary as an compiled version is provided in the release section of the repository.
+
+In the next step we download the mentioned [package](https://github.com/yck1509/ConfuserEx/releases/download/v1.0.0/ConfuserEx_bin.zip).
+
+#### Coding a minimal CLI CrackMe
+
+Now we need to program a simple CrackMe suited for demonstration purposes.
+Thanks to the new .NET release we don't need any top-level statemants, so this adventure can be achieved in a few lines of code.
+Feel free just to copy & paste and compile the following snippet if you want to follow along.
+
+```csharp
+Console.WriteLine("EasyCrackMe");
+Console.Write("\nEnter a passphrase: ");
+
+string? input;
+input = Console.ReadLine();
+
+while(input == null)
+{
+    Console.WriteLine("\nEnter a passphrase:");
+    input = Console.ReadLine();
+}
+
+if (input.Equals("easy"))
+{
+    Console.WriteLine("Solved!");
+}
+```
+
+
 
 ### Observation
 
